@@ -4,17 +4,17 @@
 // 	console.log(styles);
 
 //     let array = [
-//         {
-//             title: "free",
-//             packageDetails: [
-//                 "1 User",
-//                 "Community Support",
-//                 "Style Customizer",
-//                 "Expanded Utilities",
-//                 "Third Party Integration",
-//                 "Layout Options",
-//             ],
-//         },
+//         // {
+//         //     title: "free",
+//         //     packageDetails: [
+//         //         "1 User",
+//         //         "Community Support",
+//         //         "Style Customizer",
+//         //         "Expanded Utilities",
+//         //         "Third Party Integration",
+//         //         "Layout Options",
+//         //     ],
+//         // },
 //         {
 //             title: "standard",
 //             packageDetails: [
@@ -46,8 +46,8 @@
 // 		badge.setAttribute("id", "box-01");
 // 		badge.innerHTML = array[index].title;
 //         let packageDetails = document.createElement("div");
-//         packageDetails.classList.add('package-details')
-//         let packageDetailsTexts = array[index].packageDetails
+//         packageDetails.classList.add('package-details');
+//         let packageDetailsTexts = array[index].packageDetails;
 // 		for (let z = 0; z < packageDetailsTexts.length; z++) {
 //             const text = packageDetailsTexts[z];
 //             let packageDetailsTextDiv = document.createElement("div");
@@ -60,14 +60,11 @@
 // }
 // setRoot();
 
-//  can it creates a div in <div id[root]>
-// display flex prop
-// can we pick css id rather then class then how
-// how we raplicte any root or section
 function divs() {
 	let obj = [
 		{
 			title: "Standard",
+			price: "$0/mo",
 			items: [
 				"1 user",
 				"Community support",
@@ -80,6 +77,7 @@ function divs() {
 		},
 		{
 			title: "Enterprices",
+			price: "$100/mo",
 			items: [
 				"1 user 2",
 				"Community support 2",
@@ -95,23 +93,40 @@ function divs() {
 
 	let firstdiv = document.getElementById("sec-05-box");
 	firstdiv.style.display = "flex";
-	firstdiv.style.justifyContent = "space-between";  
-	firstdiv.style.paddingLeft = "50px";  
-	firstdiv.style.paddingRight = "50px";  
+	firstdiv.style.justifyContent = "space-between";
+	firstdiv.style.paddingLeft = "50px";
+	firstdiv.style.paddingRight = "50px";
 	for (let i = 0; i < obj.length; i++) {
 		let div = document.createElement("div");
-		div.innerHTML = obj[i].title;
+		let titleDiv = document.createElement("div");
+		// first title......
+		titleDiv.innerHTML = obj[i].title;
+		if (i == 0) {
+			titleDiv.style.cssText = `
+					font-size:40px;
+				`;
+		}
+		if (i == 1) {
+			titleDiv.style.cssText = `
+					font-size:40px;
+				`;
+		}
+		div.append(titleDiv);
 		div.setAttribute("id", "box-01");
-        let inner = document.createElement("div");
-        let innerdivs = i[items] ;
-        for (let s = 0; s < obj.length; s++) {
-            // let innerdata =  ;
-        } 
-        firstdiv.append(div);
-    }
+		let inner = document.createElement("div");
+		let innerdivs = obj[i].items;
+
+		// items......
+		for (let s = 0; s < innerdivs.length; s++) {
+			const innerdata = innerdivs[s];
+			let innerdatadivs = document.createElement("div");
+			innerdatadivs.classList.add("texts");
+			innerdatadivs.innerText = innerdata;
+			inner.append(innerdatadivs);
+		}
+		div.insertBefore(inner, div.nextSibling);
+		firstdiv.append(div);
+	}
 }
 
-
-
 divs();
-
