@@ -115,6 +115,9 @@ function divs() {
 		div.setAttribute("id", "box-01");
 		let inner = document.createElement("div");
 		let innerdivs = obj[i].items;
+		let price = document.createElement("div");
+		
+		div.append(div)
 
 		// items......
 		for (let s = 0; s < innerdivs.length; s++) {
