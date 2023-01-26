@@ -63,8 +63,21 @@
 function divs() {
 	let obj = [
 		{
-			title: "Standard",
+			title: "Free",
 			price: "$0/mo",
+			items: [
+				"1 user",
+				"Community support",
+				"Style customizer",
+				"Custom components",
+				"Expanded utilities",
+				"Third-party integration",
+				"Layout options",
+			],
+		},
+		{
+			title: "Standard",
+			price: "$60/mo",
 			items: [
 				"1 user",
 				"Community support",
@@ -91,7 +104,7 @@ function divs() {
 	];
 	console.log();
 
-	let firstdiv = document.getElementById("sec-05-box");
+	let firstdiv = document.getElementById("sec-05-box-02");
 	firstdiv.style.display = "flex";
 	firstdiv.style.justifyContent = "space-between";
 	firstdiv.style.paddingLeft = "50px";
@@ -103,12 +116,44 @@ function divs() {
 		titleDiv.innerHTML = obj[i].title;
 		if (i == 0) {
 			titleDiv.style.cssText = `
-					font-size:40px;
+			height: 19px;
+			width: 35px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: rgb(241, 246, 252);
+			border-radius: 10px;
+			font-size: 10px;
+			color: black;
+			font-weight: bold;
 				`;
 		}
 		if (i == 1) {
 			titleDiv.style.cssText = `
-					font-size:40px;
+			height: 19px;
+			width: max-content;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: rgb(241, 246, 252);
+			border-radius: 10px;
+			font-size: 10px;
+			color: black;
+			font-weight: bold;
+				`;
+		}
+		if (i == 2) {
+			titleDiv.style.cssText = `
+			height: 19px;
+			width: max-content;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: rgb(241, 246, 252);
+			border-radius: 10px;
+			font-size: 10px;
+			color: black;
+			font-weight: bold;
 				`;
 		}
 		div.append(titleDiv);
@@ -116,13 +161,40 @@ function divs() {
 		let inner = document.createElement("div");
 		let innerdivs = obj[i].items;
 		let price = document.createElement("div");
-		
-		div.append(div)
+		price.innerHTML = obj[i].price;
+		// price.style.fontSize = "50px";
+		if (i == 0) {
+			price.style.cssText = `
+			margin-top: 11px;
+	        font-size: 30px;
+			margin-bottom:10px;
+			`;
+		}
+		if (i == 1) {
+			price.style.cssText = `
+			margin-top: 11px;
+	        font-size: 30px;
+			margin-bottom:10px;
+
+			`;
+		}
+		if (i == 2) {
+			price.style.cssText = `
+			margin-top: 11px;
+	        font-size: 30px;
+			margin-bottom:10px;
+			`;
+		}
+		div.append(price);
 
 		// items......
 		for (let s = 0; s < innerdivs.length; s++) {
 			const innerdata = innerdivs[s];
 			let innerdatadivs = document.createElement("div");
+			innerdatadivs.style.cssText = `
+			font-size: 13px;
+	margin-top: 4px;
+			`;
 			innerdatadivs.classList.add("texts");
 			innerdatadivs.innerText = innerdata;
 			inner.append(innerdatadivs);
@@ -133,3 +205,28 @@ function divs() {
 }
 
 divs();
+
+// section-03
+
+function section03() {
+	let dummy = document.getElementById("section-dummy");
+
+	dummy.style.cssText = `
+		height: max-content;
+		width: 400px;
+		background-color:yellow;
+		// display: flex;
+		// justify-content: center;
+	`;
+
+	let icon = document.createElement("div");
+	icon.innerHTML =
+		// <section id="item-box">
+		// 	<div id="rounded">
+		// 		<i class="bi bi-database"></i>
+		// 	</div>
+		// </section>
+
+		dummy.append(icon);
+}
+section03();
